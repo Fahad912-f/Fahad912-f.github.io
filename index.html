@@ -1,0 +1,1273 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Muhammad Fahad Faheem — Software Engineer, Database Specialist, Content Creator & Localization Strategist." />
+    <title>Muhammad Fahad Faheem — Portfolio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              base: {
+                900: '#0a0f1e',
+                800: '#0f172a',
+                700: '#16203a',
+                600: '#1e293b',
+              },
+              glow: {
+                blue: '#3b82f6',
+                cyan: '#06b6d4',
+                purple: '#a855f7',
+              },
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ============================================
+         Portfolio — Muhammad Fahad Faheem
+         Custom styles layered on Tailwind
+         ============================================ */
+
+      html {
+        scroll-padding-top: 5rem;
+      }
+
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* ---------- Background pattern ---------- */
+      .bg-grid-pattern {
+        background-image:
+          linear-gradient(to right, rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+        background-size: 60px 60px;
+      }
+
+      /* ---------- Glassmorphism ---------- */
+      .glass {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1rem;
+      }
+
+      #navbar.scrolled {
+        background: rgba(10, 15, 30, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      /* ---------- Navigation links ---------- */
+      .nav-link {
+        position: relative;
+        transition: color 0.3s;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #3b82f6, #a855f7);
+        border-radius: 2px;
+        transition: width 0.3s;
+      }
+      .nav-link:hover {
+        color: #fff;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .mobile-link {
+        padding: 0.5rem 0;
+        transition: color 0.2s;
+      }
+      .mobile-link:hover {
+        color: #3b82f6;
+      }
+
+      /* ---------- Social icons (hero) ---------- */
+      .social-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        font-size: 1rem;
+        color: #94a3b8;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: all 0.3s ease;
+      }
+      .social-icon:hover {
+        color: #fff;
+        background: rgba(59, 130, 246, 0.15);
+        border-color: rgba(59, 130, 246, 0.4);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px -8px rgba(59, 130, 246, 0.4);
+      }
+
+      /* ---------- Footer socials ---------- */
+      .footer-social {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        color: #64748b;
+        transition: all 0.3s;
+      }
+      .footer-social:hover {
+        color: #3b82f6;
+        background: rgba(59, 130, 246, 0.1);
+      }
+
+      /* ---------- Skill cards ---------- */
+      .skill-card {
+        background: rgba(22, 32, 58, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 1rem;
+        padding: 2rem;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .skill-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(to right, #3b82f6, #a855f7);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+      .skill-card:hover {
+        border-color: rgba(59, 130, 246, 0.25);
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.3);
+      }
+      .skill-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .skill-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        font-size: 1.4rem;
+        margin-bottom: 1.25rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: all 0.3s;
+      }
+      .skill-card:hover .skill-icon {
+        transform: scale(1.1) rotate(-5deg);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      /* ---------- Tags ---------- */
+      .tag {
+        display: inline-block;
+        padding: 0.25rem 0.7rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border-radius: 6px;
+        color: #94a3b8;
+        background: rgba(148, 163, 184, 0.08);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        transition: all 0.2s;
+      }
+      .tag:hover {
+        color: #cbd5e1;
+        background: rgba(148, 163, 184, 0.15);
+      }
+      .tag-blue   { color: #60a5fa; background: rgba(59, 130, 246, 0.1);  border-color: rgba(59, 130, 246, 0.2); }
+      .tag-purple { color: #c084fc; background: rgba(168, 85, 247, 0.1);  border-color: rgba(168, 85, 247, 0.2); }
+      .tag-cyan   { color: #22d3ee; background: rgba(6, 182, 212, 0.1);   border-color: rgba(6, 182, 212, 0.2); }
+      .tag-pink   { color: #f472b6; background: rgba(236, 72, 153, 0.1);  border-color: rgba(236, 72, 153, 0.2); }
+
+      /* ---------- Project cards ---------- */
+      .project-card {
+        background: rgba(22, 32, 58, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 1rem;
+        overflow: hidden;
+        transition: all 0.4s ease;
+      }
+      .project-card:hover {
+        border-color: rgba(168, 85, 247, 0.25);
+        transform: translateY(-6px);
+        box-shadow: 0 24px 48px -24px rgba(168, 85, 247, 0.35);
+      }
+
+      .project-image {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      /* ---------- Cert cards ---------- */
+      .cert-card {
+        background: rgba(22, 32, 58, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.4s ease;
+      }
+      .cert-card:hover {
+        border-color: rgba(6, 182, 212, 0.25);
+        transform: translateY(-5px);
+        box-shadow: 0 16px 36px -16px rgba(6, 182, 212, 0.3);
+      }
+
+      .cert-image {
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px dashed rgba(255, 255, 255, 0.1);
+      }
+
+      /* ---------- Service cards ---------- */
+      .service-card {
+        background: rgba(22, 32, 58, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 1rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        transition: all 0.4s ease;
+      }
+      .service-card:hover {
+        border-color: rgba(59, 130, 246, 0.25);
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.3);
+      }
+
+      .service-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: all 0.3s;
+      }
+      .service-card:hover .service-icon {
+        transform: scale(1.12);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      /* ---------- Review / Testimonial cards ---------- */
+      .review-card {
+        background: rgba(22, 32, 58, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 1rem;
+        padding: 1.75rem;
+        transition: all 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .review-card:hover {
+        border-color: rgba(168, 85, 247, 0.25);
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -20px rgba(168, 85, 247, 0.3);
+      }
+      .review-stars {
+        color: #fbbf24;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        margin-bottom: 0.9rem;
+      }
+      .review-quote {
+        color: #cbd5e1;
+        font-size: 0.9rem;
+        line-height: 1.7;
+        flex-grow: 1;
+        position: relative;
+      }
+      .review-author {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .review-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #fff;
+        flex-shrink: 0;
+      }
+      .review-platform {
+        margin-left: auto;
+        font-size: 1rem;
+        opacity: 0.6;
+      }
+
+      /* ---------- Contact links ---------- */
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        border-radius: 0.75rem;
+        background: rgba(22, 32, 58, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: all 0.3s;
+      }
+      .contact-link:hover {
+        border-color: rgba(168, 85, 247, 0.25);
+        transform: translateX(4px);
+        background: rgba(22, 32, 58, 0.8);
+      }
+
+      .contact-link-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        flex-shrink: 0;
+      }
+
+      /* ---------- Form ---------- */
+      .form-label {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #94a3b8;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        color: #e2e8f0;
+        background: rgba(10, 15, 30, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0.6rem;
+        transition: all 0.3s;
+        outline: none;
+      }
+      .form-input::placeholder {
+        color: #475569;
+      }
+      .form-input:focus {
+        border-color: rgba(59, 130, 246, 0.5);
+        background: rgba(10, 15, 30, 0.9);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+      }
+
+      /* ---------- Form feedback ---------- */
+      #form-feedback {
+        padding: 0.875rem 1rem;
+        border-radius: 0.6rem;
+        font-size: 0.875rem;
+        text-align: center;
+      }
+      #form-feedback.success {
+        display: block;
+        color: #4ade80;
+        background: rgba(74, 222, 128, 0.08);
+        border: 1px solid rgba(74, 222, 128, 0.2);
+      }
+      #form-feedback.error {
+        display: block;
+        color: #f87171;
+        background: rgba(248, 113, 113, 0.08);
+        border: 1px solid rgba(248, 113, 113, 0.2);
+      }
+
+      /* ---------- Back to top visible ---------- */
+      #back-to-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      /* ---------- Animations ---------- */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(24px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes floatSlow {
+        0%, 100% { transform: translate(0, 0); }
+        50%      { transform: translate(20px, -30px); }
+      }
+      @keyframes floatSlower {
+        0%, 100% { transform: translate(0, 0); }
+        50%      { transform: translate(-25px, 20px); }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-out both;
+      }
+      .animate-fade-in-up {
+        animation: fadeInUp 0.7s ease-out both;
+      }
+      .animate-float-slow {
+        animation: floatSlow 12s ease-in-out infinite;
+      }
+      .animate-float-slower {
+        animation: floatSlower 16s ease-in-out infinite;
+      }
+
+      /* ---------- Scrollbar ---------- */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0f1e;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e293b;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #334155;
+      }
+
+      /* ---------- Reduced motion ---------- */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-base-900 text-slate-200 font-sans antialiased selection:bg-glow-purple/40 selection:text-white">
+    <!-- Animated background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-glow-blue/10 rounded-full blur-[120px] animate-float-slow"></div>
+      <div class="absolute top-[40%] right-[-10%] w-[600px] h-[600px] bg-glow-purple/10 rounded-full blur-[140px] animate-float-slower"></div>
+      <div class="absolute bottom-[-15%] left-[30%] w-[400px] h-[400px] bg-glow-cyan/8 rounded-full blur-[100px] animate-float-slow"></div>
+      <div class="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="#hero" class="font-mono text-lg font-semibold text-white tracking-tight">
+            <span class="text-glow-blue">&lt;</span>Fahad<span class="text-glow-purple">/&gt;</span>
+          </a>
+
+          <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+            <a href="#expertise" class="nav-link">Expertise</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#certifications" class="nav-link">Certifications</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#reviews" class="nav-link">Reviews</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+
+          <a
+            href="#contact"
+            class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-glow-blue/10 text-glow-blue border border-glow-blue/30 hover:bg-glow-blue/20 hover:border-glow-blue/50 transition-all duration-300"
+          >
+            <i class="fa-solid fa-paper-plane text-xs"></i>
+            Hire Me
+          </a>
+
+          <button id="menu-btn" class="md:hidden text-2xl text-slate-300" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/5">
+        <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium text-slate-300">
+          <a href="#expertise" class="mobile-link">Expertise</a>
+          <a href="#projects" class="mobile-link">Projects</a>
+          <a href="#certifications" class="mobile-link">Certifications</a>
+          <a href="#services" class="mobile-link">Services</a>
+          <a href="#reviews" class="mobile-link">Reviews</a>
+          <a href="#contact" class="mobile-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section
+      id="hero"
+      class="relative min-h-screen flex items-center justify-center px-6 lg:px-8 pt-24 pb-16"
+    >
+      <div class="max-w-4xl mx-auto text-center">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-8 text-sm text-slate-300 animate-fade-in"
+        >
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          Available for freelance & collaboration
+        </div>
+
+        <h1
+          class="text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-6 animate-fade-in-up"
+          style="animation-delay: .1s"
+        >
+          Muhammad Fahad
+          <span class="bg-gradient-to-r from-glow-blue via-glow-cyan to-glow-purple bg-clip-text text-transparent">
+            Faheem
+          </span>
+        </h1>
+
+        <p
+          class="text-lg md:text-xl text-slate-400 font-medium mb-4 animate-fade-in-up"
+          style="animation-delay: .2s"
+        >
+          Software Engineer
+          <span class="text-glow-blue mx-1">|</span>
+          Database Specialist
+          <span class="text-glow-purple mx-1">|</span>
+          Content Creator &amp; Localization Strategist
+        </p>
+
+        <p
+          class="max-w-2xl mx-auto text-base text-slate-400 leading-relaxed mb-10 animate-fade-in-up"
+          style="animation-delay: .3s"
+        >
+          A versatile Software Engineer skilled in web development, database management,
+          quick code debugging &amp; bug fixes, high-engaging TikTok video editing, and
+          English-Arabic translation projects.
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
+          style="animation-delay: .4s"
+        >
+          <a
+            href="#projects"
+            class="group inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-glow-blue to-glow-purple hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.5)] transition-all duration-300 hover:scale-[1.03]"
+          >
+            <i class="fa-solid fa-eye text-sm"></i>
+            View Work
+            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+          </a>
+          <a
+            href="#contact"
+            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-slate-200 glass border border-white/10 hover:border-glow-blue/40 hover:text-white transition-all duration-300"
+          >
+            <i class="fa-solid fa-envelope text-sm"></i>
+            Contact Me
+          </a>
+        </div>
+
+        <div
+          class="flex items-center justify-center gap-6 mt-12 animate-fade-in-up"
+          style="animation-delay: .5s"
+        >
+          <a href="mailto:fahadfaheem@example.com" class="social-icon" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
+
+      <a href="#expertise" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500 hover:text-glow-blue transition-colors animate-bounce">
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise" class="py-24 px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono text-glow-blue mb-3">// what I do</p>
+          <h2 class="text-3xl md:text-5xl font-bold text-white">Core Expertise &amp; Skills</h2>
+          <div class="mt-4 h-1 w-20 bg-gradient-to-r from-glow-blue to-glow-purple rounded-full mx-auto"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="skill-card group">
+            <div class="skill-icon text-glow-blue">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-3">Software &amp; Web Development</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Building responsive, modern web applications with clean, maintainable code.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">C++</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Tailwind CSS</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="skill-card group">
+            <div class="skill-icon text-glow-purple">
+              <i class="fa-solid fa-bug-slash"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-3">Code Debugging &amp; Bug Fixes</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Quick issue identification, code cleanup, syntax fixes, and performance
+              optimization for web applications.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Quick Fixes</span>
+              <span class="tag">Code Cleanup</span>
+              <span class="tag">Performance</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="skill-card group">
+            <div class="skill-icon text-glow-cyan">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-3">Database Administration</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Designing and managing efficient database architectures with optimized queries.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">SQL</span>
+              <span class="tag">DB Architecture</span>
+              <span class="tag">Query Optimization</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="skill-card group">
+            <div class="skill-icon text-pink-400">
+              <i class="fa-solid fa-video"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-3">TikTok &amp; Short-Form Video Editing</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              High-retention video editing with trending visual hooks, audio sync, captions,
+              and short-form video strategy.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">High Retention</span>
+              <span class="tag">Trending Hooks</span>
+              <span class="tag">Captions</span>
+              <span class="tag">Audio Sync</span>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="skill-card group">
+            <div class="skill-icon text-amber-400">
+              <i class="fa-solid fa-language"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-3">Translation &amp; Localization</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              English to Arabic dataset management, translation project execution, and
+              cross-cultural content adaptation.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">EN → AR</span>
+              <span class="tag">Datasets</span>
+              <span class="tag">QA</span>
+              <span class="tag">Localization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-24 px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono text-glow-purple mb-3">// selected work</p>
+          <h2 class="text-3xl md:text-5xl font-bold text-white">Featured Projects &amp; Work</h2>
+          <div class="mt-4 h-1 w-20 bg-gradient-to-r from-glow-purple to-glow-blue rounded-full mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Project 1 -->
+          <article class="project-card group">
+            <div class="project-image bg-gradient-to-br from-amber-500/20 to-glow-purple/20">
+              <i class="fa-solid fa-language text-6xl text-amber-400/70 group-hover:scale-110 transition-transform duration-500"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag tag-purple">Localization</span>
+                <span class="tag tag-purple">QA</span>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">English-Arabic Translation Dataset Management</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Managed large-scale English-to-Arabic translation datasets with rigorous QA
+                pipelines, ensuring linguistic accuracy and cultural relevance across
+                multi-domain content.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card group">
+            <div class="project-image bg-gradient-to-br from-glow-purple/20 to-glow-blue/20">
+              <i class="fa-solid fa-bug-slash text-6xl text-glow-purple/70 group-hover:scale-110 transition-transform duration-500"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag tag-blue">Debugging</span>
+                <span class="tag tag-blue">Web Tweaks</span>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">Code Optimization &amp; Bug Fixing Suite</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                A collection of rapid debugging sessions and performance optimizations across
+                web applications — fixing syntax errors, refactoring logic, and improving
+                load times for smoother user experiences.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card group">
+            <div class="project-image bg-gradient-to-br from-pink-500/20 to-glow-purple/20">
+              <i class="fa-solid fa-video text-6xl text-pink-400/70 group-hover:scale-110 transition-transform duration-500"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag tag-pink">Video Editing</span>
+                <span class="tag tag-pink">Engagement</span>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">TikTok &amp; Short-Form Content Campaign</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Edited and strategized viral short-form video campaigns with high-retention
+                hooks, synced captions, and trending audio — driving significant audience
+                engagement and watch-time growth.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card group">
+            <div class="project-image bg-gradient-to-br from-glow-cyan/20 to-glow-blue/20">
+              <i class="fa-solid fa-database text-6xl text-glow-cyan/70 group-hover:scale-110 transition-transform duration-500"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="tag tag-cyan">SQL</span>
+                <span class="tag tag-cyan">Data Structuring</span>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">Database Management System</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Designed and implemented a structured SQL database system with optimized
+                schemas, efficient query patterns, and data integrity constraints for
+                reliable application backends.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="py-24 px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono text-glow-cyan mb-3">// credentials</p>
+          <h2 class="text-3xl md:text-5xl font-bold text-white">Certifications &amp; Achievements</h2>
+          <div class="mt-4 h-1 w-20 bg-gradient-to-r from-glow-cyan to-glow-blue rounded-full mx-auto"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Cert 1 -->
+          <div class="cert-card group">
+            <div class="cert-image">
+              <i class="fa-solid fa-certificate text-5xl text-glow-blue/60 group-hover:text-glow-blue transition-colors duration-300"></i>
+            </div>
+            <h3 class="font-semibold text-white text-sm">Certificate</h3>
+            <p class="text-slate-500 text-xs">Add credential details</p>
+          </div>
+          <!-- Cert 2 -->
+          <div class="cert-card group">
+            <div class="cert-image">
+              <i class="fa-solid fa-award text-5xl text-glow-purple/60 group-hover:text-glow-purple transition-colors duration-300"></i>
+            </div>
+            <h3 class="font-semibold text-white text-sm">Skill Badge</h3>
+            <p class="text-slate-500 text-xs">Add credential details</p>
+          </div>
+          <!-- Cert 3 -->
+          <div class="cert-card group">
+            <div class="cert-image">
+              <i class="fa-solid fa-trophy text-5xl text-glow-cyan/60 group-hover:text-glow-cyan transition-colors duration-300"></i>
+            </div>
+            <h3 class="font-semibold text-white text-sm">Achievement</h3>
+            <p class="text-slate-500 text-xs">Add credential details</p>
+          </div>
+          <!-- Cert 4 -->
+          <div class="cert-card group">
+            <div class="cert-image">
+              <i class="fa-solid fa-medal text-5xl text-amber-400/60 group-hover:text-amber-400 transition-colors duration-300"></i>
+            </div>
+            <h3 class="font-semibold text-white text-sm">Credential</h3>
+            <p class="text-slate-500 text-xs">Add credential details</p>
+          </div>
+        </div>
+
+        <p class="text-center text-slate-500 text-sm mt-8">
+          <i class="fa-solid fa-circle-info mr-1.5"></i>
+          Replace these placeholders with your uploaded certificate images.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono text-glow-blue mb-3">// what I offer</p>
+          <h2 class="text-3xl md:text-5xl font-bold text-white">Services Offered</h2>
+          <div class="mt-4 h-1 w-20 bg-gradient-to-r from-glow-blue to-glow-cyan rounded-full mx-auto"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="service-card group">
+            <div class="service-icon text-glow-purple">
+              <i class="fa-solid fa-bug-slash"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Code Debugging &amp; Quick Bug Fixes</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Fast, reliable identification and resolution of code issues, syntax errors, and
+              performance bottlenecks.
+            </p>
+          </div>
+
+          <div class="service-card group">
+            <div class="service-icon text-pink-400">
+              <i class="fa-solid fa-film"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">High-Retention TikTok &amp; Reels Editing</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Scroll-stopping short-form video edits with trending hooks, captions, and audio
+              sync designed to maximize watch time.
+            </p>
+          </div>
+
+          <div class="service-card group">
+            <div class="service-icon text-amber-400">
+              <i class="fa-solid fa-language"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Translation &amp; Dataset Annotation (EN-AR)</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Accurate English-to-Arabic translation, dataset annotation, and localization QA
+              for cross-cultural projects.
+            </p>
+          </div>
+
+          <div class="service-card group">
+            <div class="service-icon text-glow-cyan">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Custom Database Design &amp; Web Development</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Tailored database schemas and responsive web applications built from the ground
+              up to your specifications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews / Testimonials -->
+    <section id="reviews" class="py-24 px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono text-amber-400 mb-3">// client feedback</p>
+          <h2 class="text-3xl md:text-5xl font-bold text-white">Reviews &amp; Testimonials</h2>
+          <div class="mt-4 h-1 w-20 bg-gradient-to-r from-amber-400 to-glow-purple rounded-full mx-auto"></div>
+          <p class="text-slate-400 mt-6 max-w-xl mx-auto">
+            Feedback from clients I've worked with on freelance projects, gigs, and collaborations.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Review 1 -->
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-quote">
+              "Fahad delivered our translation dataset ahead of schedule with excellent
+              accuracy. Communication was smooth throughout the project."
+            </p>
+            <div class="review-author">
+              <div class="review-avatar bg-gradient-to-br from-glow-blue to-glow-purple">A</div>
+              <div>
+                <p class="text-sm font-medium text-white">Ahmed K.</p>
+                <p class="text-xs text-slate-500">Cairo, Localization Client</p>
+              </div>
+              <div class="review-platform"><i class="fa-brands fa-fiverr" style="color:#1dbf73"></i></div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-quote">
+              "Quick turnaround on my resume — clean formatting, ATS-friendly, and he
+              actually explained the choices he made. Highly recommended."
+            </p>
+            <div class="review-author">
+              <div class="review-avatar bg-gradient-to-br from-glow-cyan to-glow-blue">S</div>
+              <div>
+                <p class="text-sm font-medium text-white">Sara M.</p>
+                <p class="text-xs text-slate-500">Resume Writing Client</p>
+              </div>
+              <div class="review-platform"><i class="fa-brands fa-fiverr" style="color:#1dbf73"></i></div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-quote">
+              "Found and fixed a nasty bug in our JS code within an hour. Explained the
+              root cause clearly so it wouldn't happen again."
+            </p>
+            <div class="review-author">
+              <div class="review-avatar bg-gradient-to-br from-pink-400 to-glow-purple">U</div>
+              <div>
+                <p class="text-sm font-medium text-white">Usman T.</p>
+                <p class="text-xs text-slate-500">Web Development Client</p>
+              </div>
+              <div class="review-platform"><i class="fa-solid fa-globe text-slate-400"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-slate-500 text-sm mt-8">
+          <i class="fa-solid fa-circle-info mr-1.5"></i>
+          Replace these with your real client reviews as your gig grows.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono text-glow-purple mb-3">// let's talk</p>
+          <h2 class="text-3xl md:text-5xl font-bold text-white">Contact &amp; Socials</h2>
+          <div class="mt-4 h-1 w-20 bg-gradient-to-r from-glow-purple to-glow-blue rounded-full mx-auto"></div>
+          <p class="text-slate-400 mt-6 max-w-xl mx-auto">
+            Have a project in mind or need a quick bug fix? Send a message and I'll get back
+            to you.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-8">
+          <!-- Contact info -->
+          <div class="lg:col-span-2 flex flex-col gap-4">
+            <a href="mailto:fahadfaheem@example.com" class="contact-link">
+              <div class="contact-link-icon text-glow-blue"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <p class="text-xs text-slate-500">Email</p>
+                <p class="text-sm font-medium text-slate-200">fahadfaheem@example.com</p>
+              </div>
+            </a>
+            <a href="#" class="contact-link">
+              <div class="contact-link-icon text-glow-cyan"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div>
+                <p class="text-xs text-slate-500">LinkedIn</p>
+                <p class="text-sm font-medium text-slate-200">Connect with me</p>
+              </div>
+            </a>
+            <a href="#" class="contact-link">
+              <div class="contact-link-icon text-white"><i class="fa-brands fa-github"></i></div>
+              <div>
+                <p class="text-xs text-slate-500">GitHub</p>
+                <p class="text-sm font-medium text-slate-200">View my code</p>
+              </div>
+            </a>
+            <a href="#" class="contact-link">
+              <div class="contact-link-icon text-green-400"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <p class="text-xs text-slate-500">WhatsApp</p>
+                <p class="text-sm font-medium text-slate-200">Chat directly</p>
+              </div>
+            </a>
+            <a href="#" class="contact-link">
+              <div class="contact-link-icon text-pink-400"><i class="fa-brands fa-tiktok"></i></div>
+              <div>
+                <p class="text-xs text-slate-500">TikTok / Portfolio</p>
+                <p class="text-sm font-medium text-slate-200">See my content</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Contact form -->
+          <div class="lg:col-span-3">
+            <!--
+              This form uses FormSubmit.co — a free service that emails form
+              submissions straight to your inbox with ZERO backend code.
+              STEP 1: Replace YOUR_EMAIL@example.com below with your real email.
+              STEP 2: After the site is live, submit the form once — FormSubmit
+              will email you a confirmation link. Click it to activate.
+            -->
+            <form
+              id="contact-form"
+              class="glass rounded-2xl p-6 md:p-8 space-y-5"
+              action="https://formsubmit.co/YOUR_EMAIL@example.com"
+              method="POST"
+            >
+              <!-- FormSubmit settings -->
+              <input type="hidden" name="_subject" value="New message from Portfolio Website!" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <!-- Honeypot spam trap (leave as-is, keep hidden) -->
+              <input type="text" name="_honey" style="display:none" />
+
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" id="name" name="name" required
+                    class="form-input" placeholder="Your name" />
+                </div>
+                <div>
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" name="email" required
+                    class="form-input" placeholder="you@example.com" />
+                </div>
+              </div>
+              <div>
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" id="subject" name="subject" required
+                  class="form-input" placeholder="What's this about?" />
+              </div>
+              <div>
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" rows="5" required
+                  class="form-input resize-none" placeholder="Tell me about your project..."></textarea>
+              </div>
+
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-glow-blue to-glow-purple hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.5)] transition-all duration-300 hover:scale-[1.01] disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                <i class="fa-solid fa-paper-plane text-sm"></i>
+                <span id="submit-text">Send Message</span>
+              </button>
+
+              <div id="form-feedback" class="hidden"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-10 px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-mono text-sm text-slate-500">
+          <span class="text-glow-blue">&lt;</span>Fahad<span class="text-glow-purple">/&gt;</span>
+          &nbsp;— Built with passion
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="mailto:fahadfaheem@example.com" class="footer-social" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="#" class="footer-social" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="footer-social" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="#" class="footer-social" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="#" class="footer-social" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </div>
+        <p class="text-xs text-slate-600">&copy; 2026 Muhammad Fahad Faheem. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-xl glass border border-white/10 text-slate-300 hover:text-glow-blue hover:border-glow-blue/40 transition-all opacity-0 pointer-events-none translate-y-4 duration-300"
+      aria-label="Back to top"
+    >
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+      /* ---------------------------------------
+         Navbar — scroll state + mobile menu
+      --------------------------------------- */
+      const navbar = document.getElementById('navbar');
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+
+        const backToTop = document.getElementById('back-to-top');
+        if (window.scrollY > 500) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const icon = menuBtn.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+      });
+
+      document.querySelectorAll('.mobile-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          const icon = menuBtn.querySelector('i');
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-xmark');
+        });
+      });
+
+      /* ---------------------------------------
+         Back to top
+      --------------------------------------- */
+      document.getElementById('back-to-top').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      /* ---------------------------------------
+         Contact form — basic client-side validation.
+         Actual sending is handled by FormSubmit.co
+         (see the form's "action" attribute above).
+      --------------------------------------- */
+      const form = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const submitText = document.getElementById('submit-text');
+      const feedback = document.getElementById('form-feedback');
+
+      function showFeedback(message, type) {
+        feedback.textContent = message;
+        feedback.className = type;
+      }
+
+      form.addEventListener('submit', (e) => {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !subject || !message) {
+          e.preventDefault();
+          showFeedback('Please fill in all fields before sending.', 'error');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitText.textContent = 'Sending...';
+        // Form now submits normally to FormSubmit.co and redirects/thanks the user.
+      });
+    </script>
+  </body>
+</html>
